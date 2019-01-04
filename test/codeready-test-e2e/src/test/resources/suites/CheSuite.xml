@@ -22,17 +22,17 @@
 
           <!-- upstream Eclipse Che tests adapted to CodeReady Workspaces -->
           <class name="com.redhat.codeready.selenium.dashboard.CreateAndDeleteProjectsTest"/>
-          <class name="com.redhat.codeready.selenium.dashboard.CreateFactoryTest"/>
-          <class name="com.redhat.codeready.selenium.dashboard.CreateWorkspaceTest"/>
+          <class name="com.redhat.codeready.selenium.dashboard.CodereadyCreateFactoryTest"/>
+          <class name="com.redhat.codeready.selenium.dashboard.CodereadyCreateWorkspaceTest"/>
           <class name="com.redhat.codeready.selenium.dashboard.StacksListTest"/>
           <class name="com.redhat.codeready.selenium.dashboard.CreateStackTest"/>
           <class name="com.redhat.codeready.selenium.dashboard.workspaces.AddOrImportProjectFormTest"/>
           <class name="com.redhat.codeready.selenium.dashboard.workspaces.NewWorkspacePageTest"/>
-          <class name="com.redhat.codeready.selenium.dashboard.workspaces.details.WorkspaceDetailsOverviewTest"/>
-          <class name="com.redhat.codeready.selenium.dashboard.workspaces.details.WorkspaceDetailsProjectsTest"/>
-          <class name="com.redhat.codeready.selenium.dashboard.workspaces.details.WorkspaceDetailsSingleMachineTest"/>
-          <class name="com.redhat.codeready.selenium.dashboard.workspaces.details.WorkspaceDetailsMachineActionsTest"/>
-          <class name="com.redhat.codeready.selenium.dashboard.workspaces.details.WorkspaceDetailsMachinesRamTest"/>
+          <class name="com.redhat.codeready.selenium.dashboard.workspaces.details.CodereadyWorkspaceDetailsOverviewTest"/>
+          <class name="com.redhat.codeready.selenium.dashboard.workspaces.details.CodereadyWorkspaceDetailsProjectsTest"/>
+          <class name="com.redhat.codeready.selenium.dashboard.workspaces.details.CodereadyWorkspaceDetailsSingleMachineTest"/>
+          <class name="com.redhat.codeready.selenium.dashboard.workspaces.details.CodereadyWorkspaceDetailsMachineActionsTest"/>
+          <class name="com.redhat.codeready.selenium.dashboard.workspaces.details.CodereadyWorkspaceDetailsMachinesRamTest"/>
           <class name="com.redhat.codeready.selenium.debugger.CodeReadyCppProjectDebuggingTest"/>
           <class name="com.redhat.codeready.selenium.debugger.CodeReadyPhpProjectDebuggingTest"/>
           <class name="com.redhat.codeready.selenium.debugger.CodeReadyStepIntoStepOverStepReturnWithChangeVariableTest"/>
