@@ -256,7 +256,7 @@
                                 </property>
                                 <property>
                                     <name>listener</name>
-                                    <value>com.redhat.codeready.selenium.core.CodereadySeleniumTestHandler</value>
+                                    <value>com.redhat.codeready.selenium.core.CodeReadySeleniumTestHandler</value>
                                 </property>
                             </properties>
                             <systemProperties>

@@ -32,23 +32,23 @@ public class CodeReadyKeycloakFederatedIdentitiesPage extends KeycloakFederatedI
   private final WebDriverWait loadPageWait;
   private final SeleniumWebDriver seleniumWebDriver;
   private final SeleniumWebDriverHelper seleniumWebDriverHelper;
-  private final CodereadyKeycloakHeaderButtons codereadyKeycloakHeaderButtons;
+  private final CodeReadyKeycloakHeaderButtons codeReadyKeycloakHeaderButtons;
   private final TestKeycloakSettingsServiceClient testKeycloakSettingsServiceClient;
 
   @Inject
   public CodeReadyKeycloakFederatedIdentitiesPage(
       SeleniumWebDriver seleniumWebDriver,
       SeleniumWebDriverHelper seleniumWebDriverHelper,
-      CodereadyKeycloakHeaderButtons codereadyKeycloakHeaderButtons,
+      CodeReadyKeycloakHeaderButtons codeReadyKeycloakHeaderButtons,
       TestKeycloakSettingsServiceClient testKeycloakSettingsServiceClient) {
     super(
         seleniumWebDriver,
         seleniumWebDriverHelper,
-        codereadyKeycloakHeaderButtons,
+        codeReadyKeycloakHeaderButtons,
         testKeycloakSettingsServiceClient);
     this.seleniumWebDriver = seleniumWebDriver;
     this.seleniumWebDriverHelper = seleniumWebDriverHelper;
-    this.codereadyKeycloakHeaderButtons = codereadyKeycloakHeaderButtons;
+    this.codeReadyKeycloakHeaderButtons = codeReadyKeycloakHeaderButtons;
     this.testKeycloakSettingsServiceClient = testKeycloakSettingsServiceClient;
     this.loadPageWait = new WebDriverWait(seleniumWebDriver, LOAD_PAGE_TIMEOUT_SEC);
   }
@@ -67,7 +67,7 @@ public class CodeReadyKeycloakFederatedIdentitiesPage extends KeycloakFederatedI
   }
 
   private void waitPageIsLoaded() {
-    codereadyKeycloakHeaderButtons.waitAllHeaderButtonsAreVisible();
+    codeReadyKeycloakHeaderButtons.waitAllHeaderButtonsAreVisible();
     waitAllBodyFieldsAndButtonsIsVisible();
   }
 

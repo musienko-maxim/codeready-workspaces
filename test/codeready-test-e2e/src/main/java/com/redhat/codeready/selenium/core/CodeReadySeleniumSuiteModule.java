@@ -15,16 +15,19 @@ import com.google.inject.AbstractModule;
 import com.redhat.codeready.selenium.core.executor.hotupdate.CodeReadyHotUpdateUtil;
 import org.eclipse.che.selenium.core.CheSeleniumSuiteModule;
 import org.eclipse.che.selenium.core.executor.hotupdate.HotUpdateUtil;
+import org.eclipse.che.selenium.core.workspace.CodeReadyTestWorkspaceProvider;
+import org.eclipse.che.selenium.core.workspace.TestWorkspaceProvider;
 
 /**
  * Guice module per suite.
  *
  * @author Dmytro Nochevnov
  */
-public class CodereadySeleniumSuiteModule extends AbstractModule {
+public class CodeReadySeleniumSuiteModule extends AbstractModule {
 
   @Override
   public void configure() {
+    bind(TestWorkspaceProvider.class).to(CodeReadyTestWorkspaceProvider.class);
     install(new CheSeleniumSuiteModule());
 
     bind(HotUpdateUtil.class).to(CodeReadyHotUpdateUtil.class);

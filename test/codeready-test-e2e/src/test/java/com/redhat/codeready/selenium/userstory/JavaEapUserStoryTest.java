@@ -11,7 +11,7 @@
 */
 package com.redhat.codeready.selenium.userstory;
 
-import static com.redhat.codeready.selenium.pageobject.dashboard.CodereadyNewWorkspace.CodereadyStacks.JAVA_EAP;
+import static com.redhat.codeready.selenium.pageobject.dashboard.CodeReadyNewWorkspace.CodereadyStacks.JAVA_EAP;
 import static java.nio.file.Files.readAllLines;
 import static java.nio.file.Paths.get;
 import static org.eclipse.che.commons.lang.NameGenerator.generate;
@@ -21,7 +21,6 @@ import static org.eclipse.che.selenium.core.constant.TestMenuCommandsConstants.A
 import static org.eclipse.che.selenium.core.constant.TestMenuCommandsConstants.Assistant.QUICK_DOCUMENTATION;
 import static org.eclipse.che.selenium.core.constant.TestMenuCommandsConstants.Assistant.QUICK_FIX;
 import static org.eclipse.che.selenium.core.constant.TestTimeoutsConstants.LOADER_TIMEOUT_SEC;
-import static org.eclipse.che.selenium.core.utils.FileUtil.readFileToString;
 import static org.eclipse.che.selenium.pageobject.CodenvyEditor.MarkerLocator.ERROR;
 import static org.eclipse.che.selenium.pageobject.CodenvyEditor.MarkerLocator.ERROR_OVERVIEW;
 import static org.eclipse.che.selenium.pageobject.debug.DebugPanel.DebuggerActionButtons.BTN_DISCONNECT;
@@ -37,11 +36,11 @@ import static org.testng.Assert.fail;
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableList;
 import com.google.inject.Inject;
-import com.redhat.codeready.selenium.pageobject.CodereadyDebuggerPanel;
-import com.redhat.codeready.selenium.pageobject.CodereadyEditor;
+import com.redhat.codeready.selenium.pageobject.CodeReadyDebuggerPanel;
+import com.redhat.codeready.selenium.pageobject.CodeReadyEditor;
 import com.redhat.codeready.selenium.pageobject.dashboard.CodeReadyCreateWorkspaceHelper;
-import com.redhat.codeready.selenium.pageobject.dashboard.CodereadyFindUsageWidget;
-import com.redhat.codeready.selenium.pageobject.dashboard.CodereadyNewWorkspace;
+import com.redhat.codeready.selenium.pageobject.dashboard.CodeReadyFindUsageWidget;
+import com.redhat.codeready.selenium.pageobject.dashboard.CodeReadyNewWorkspace;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -88,7 +87,7 @@ public class JavaEapUserStoryTest {
 
   @Inject private Dashboard dashboard;
   @Inject private Workspaces workspaces;
-  @Inject private CodereadyNewWorkspace newWorkspace;
+  @Inject private CodeReadyNewWorkspace newWorkspace;
   @Inject private DefaultTestUser defaultTestUser;
   @Inject private TestWorkspaceProvider testWorkspaceProvider;
   @Inject private SeleniumWebDriverHelper seleniumWebDriverHelper;
@@ -97,13 +96,13 @@ public class JavaEapUserStoryTest {
   @Inject private AddOrImportForm addOrImportForm;
   @Inject private CommandsPalette commandsPalette;
   @Inject private Consoles consoles;
-  @Inject private CodereadyEditor editor;
+  @Inject private CodeReadyEditor editor;
   @Inject private Menu menu;
-  @Inject private CodereadyDebuggerPanel debugPanel;
+  @Inject private CodeReadyDebuggerPanel debugPanel;
   @Inject private JavaDebugConfig debugConfig;
   @Inject private Events events;
   @Inject private NotificationsPopupPanel notifications;
-  @Inject private CodereadyFindUsageWidget findUsages;
+  @Inject private CodeReadyFindUsageWidget findUsages;
   @Inject private TestProjectServiceClient projectServiceClient;
   @Inject private CodeReadyCreateWorkspaceHelper codeReadyCreateWorkspaceHelper;
 
@@ -112,15 +111,10 @@ public class JavaEapUserStoryTest {
 
   // it is used to read workspace logs on test failure
   private TestWorkspace testWorkspace;
-  private String addressImage;
 
   @BeforeClass
-  public void setUp() throws URISyntaxException, IOException {
+  public void setUp() {
     dashboard.open();
-
-    addressImage = readFileToString(getClass().getResource("/crw-stage-images/java-stack.txt"));
-    pomFileChangedText =
-        readFileToString(getClass().getResource("/projects/bayesian/pom-file-after.txt"));
   }
 
   @AfterClass
@@ -132,7 +126,7 @@ public class JavaEapUserStoryTest {
   public void createJavaEAPWorkspaceWithProjectFromDashBoard() throws Exception {
     testWorkspace =
         codeReadyCreateWorkspaceHelper.createWsFromStackWithTestProject(
-            WORKSPACE, JAVA_EAP, addressImage, projects);
+            WORKSPACE, JAVA_EAP, projects);
 
     projectExplorer.waitItem(PROJECT);
     events.clickEventLogBtn();

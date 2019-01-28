@@ -11,7 +11,7 @@
 */
 package com.redhat.codeready.selenium.userstory;
 
-import static com.redhat.codeready.selenium.pageobject.dashboard.CodereadyNewWorkspace.CodereadyStacks.PYTHON;
+import static com.redhat.codeready.selenium.pageobject.dashboard.CodeReadyNewWorkspace.CodereadyStacks.PYTHON;
 import static java.util.Arrays.asList;
 import static org.eclipse.che.commons.lang.NameGenerator.generate;
 import static org.eclipse.che.selenium.core.constant.TestMenuCommandsConstants.Assistant.ASSISTANT;
@@ -19,13 +19,12 @@ import static org.eclipse.che.selenium.core.constant.TestMenuCommandsConstants.A
 import static org.eclipse.che.selenium.core.constant.TestMenuCommandsConstants.Assistant.GO_TO_SYMBOL;
 import static org.eclipse.che.selenium.core.constant.TestProjectExplorerContextMenuConstants.ContextMenuCommandGoals.RUN_GOAL;
 import static org.eclipse.che.selenium.core.constant.TestTimeoutsConstants.ELEMENT_TIMEOUT_SEC;
-import static org.eclipse.che.selenium.core.utils.FileUtil.readFileToString;
 import static org.eclipse.che.selenium.pageobject.CodenvyEditor.MarkerLocator.WARNING;
 import static org.openqa.selenium.Keys.ARROW_LEFT;
 
 import com.google.common.collect.ImmutableList;
 import com.google.inject.Inject;
-import com.redhat.codeready.selenium.pageobject.CodereadyEditor;
+import com.redhat.codeready.selenium.pageobject.CodeReadyEditor;
 import com.redhat.codeready.selenium.pageobject.dashboard.CodeReadyCreateWorkspaceHelper;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -84,7 +83,7 @@ public class PythonUserStoryTest {
   @Inject private Menu menu;
   @Inject private Consoles consoles;
   @Inject private Dashboard dashboard;
-  @Inject private CodereadyEditor editor;
+  @Inject private CodeReadyEditor editor;
   @Inject private DefaultTestUser defaultTestUser;
   @Inject private ProjectExplorer projectExplorer;
   @Inject private AssistantFindPanel assistantFindPanel;
@@ -95,12 +94,10 @@ public class PythonUserStoryTest {
 
   // it is used to read workspace logs on test failure
   private TestWorkspace testWorkspace;
-  private String addressImage;
 
   @BeforeClass
   public void setUp() throws IOException, URISyntaxException {
     dashboard.open();
-    addressImage = readFileToString(getClass().getResource("/crw-stage-images/python-stack.txt"));
   }
 
   @AfterClass
@@ -112,7 +109,7 @@ public class PythonUserStoryTest {
   public void createPythonWorkspaceWithProjectFromDashboard() throws Exception {
     testWorkspace =
         codeReadyCreateWorkspaceHelper.createWsFromStackWithTestProject(
-            WORKSPACE_NAME, PYTHON, addressImage, projects);
+            WORKSPACE_NAME, PYTHON, projects);
 
     ide.switchToIdeAndWaitWorkspaceIsReadyToUse();
     projectExplorer.waitProjectInitialization(PROJECT_NAME);

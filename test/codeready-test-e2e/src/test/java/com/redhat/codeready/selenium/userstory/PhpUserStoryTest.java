@@ -11,7 +11,7 @@
 */
 package com.redhat.codeready.selenium.userstory;
 
-import static com.redhat.codeready.selenium.pageobject.dashboard.CodereadyNewWorkspace.CodereadyStacks.PHP;
+import static com.redhat.codeready.selenium.pageobject.dashboard.CodeReadyNewWorkspace.CodereadyStacks.PHP;
 import static org.eclipse.che.commons.lang.NameGenerator.generate;
 import static org.eclipse.che.selenium.core.constant.TestMenuCommandsConstants.Run.DEBUG;
 import static org.eclipse.che.selenium.core.constant.TestMenuCommandsConstants.Run.EDIT_DEBUG_CONFIGURATION;
@@ -19,7 +19,6 @@ import static org.eclipse.che.selenium.core.constant.TestMenuCommandsConstants.R
 import static org.eclipse.che.selenium.core.constant.TestProjectExplorerContextMenuConstants.ContextMenuCommandGoals.DEBUG_GOAL;
 import static org.eclipse.che.selenium.core.constant.TestProjectExplorerContextMenuConstants.ContextMenuCommandGoals.RUN_GOAL;
 import static org.eclipse.che.selenium.core.constant.TestTimeoutsConstants.LOADER_TIMEOUT_SEC;
-import static org.eclipse.che.selenium.core.utils.FileUtil.readFileToString;
 import static org.eclipse.che.selenium.pageobject.CodenvyEditor.MarkerLocator.ERROR_OVERVIEW;
 import static org.openqa.selenium.Keys.ARROW_DOWN;
 import static org.openqa.selenium.Keys.LEFT_CONTROL;
@@ -27,12 +26,10 @@ import static org.openqa.selenium.Keys.LEFT_SHIFT;
 
 import com.google.common.collect.ImmutableList;
 import com.google.inject.Inject;
-import com.redhat.codeready.selenium.pageobject.CodereadyEditor;
+import com.redhat.codeready.selenium.pageobject.CodeReadyEditor;
 import com.redhat.codeready.selenium.pageobject.dashboard.CodeReadyCreateWorkspaceHelper;
-import com.redhat.codeready.selenium.pageobject.dashboard.CodereadyNewWorkspace;
-import java.io.IOException;
+import com.redhat.codeready.selenium.pageobject.dashboard.CodeReadyNewWorkspace;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
@@ -117,7 +114,7 @@ public class PhpUserStoryTest {
   @Inject private Ide ide;
   @Inject private Dashboard dashboard;
   @Inject private Workspaces workspaces;
-  @Inject private CodereadyNewWorkspace newWorkspace;
+  @Inject private CodeReadyNewWorkspace newWorkspace;
   @Inject private DefaultTestUser defaultTestUser;
   @Inject private TestWorkspaceProvider testWorkspaceProvider;
   @Inject private SeleniumWebDriverHelper seleniumWebDriverHelper;
@@ -126,7 +123,7 @@ public class PhpUserStoryTest {
   @Inject private TestProjectServiceClient testProjectServiceClient;
   @Inject private AddOrImportForm addOrImportForm;
   @Inject private Consoles consoles;
-  @Inject private CodereadyEditor editor;
+  @Inject private CodeReadyEditor editor;
   @Inject private Events events;
   @Inject private SeleniumWebDriver seleniumWebDriver;
   @Inject private Menu menu;
@@ -136,12 +133,10 @@ public class PhpUserStoryTest {
   @Inject private CodeReadyCreateWorkspaceHelper codeReadyCreateWorkspaceHelper;
 
   private TestWorkspace testWorkspace;
-  private String addressImage;
 
   @BeforeClass
-  public void setUp() throws IOException, URISyntaxException {
+  public void setUp() {
     dashboard.open();
-    addressImage = readFileToString(getClass().getResource("/crw-stage-images/php-stack.txt"));
   }
 
   @AfterClass
@@ -154,8 +149,7 @@ public class PhpUserStoryTest {
     // store info about created workspace to make SeleniumTestHandler.captureTestWorkspaceLogs()
     // possible to read logs in case of test failure
     testWorkspace =
-        codeReadyCreateWorkspaceHelper.createWsFromStackWithTestProject(
-            WORKSPACE, PHP, addressImage, projects);
+        codeReadyCreateWorkspaceHelper.createWsFromStackWithTestProject(WORKSPACE, PHP, projects);
 
     ide.switchToIdeAndWaitWorkspaceIsReadyToUse();
     projectExplorer.waitItem(PROJECT_NAME);

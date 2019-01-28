@@ -11,7 +11,7 @@
 */
 package com.redhat.codeready.selenium.userstory;
 
-import static com.redhat.codeready.selenium.pageobject.dashboard.CodereadyNewWorkspace.CodereadyStacks.NODE;
+import static com.redhat.codeready.selenium.pageobject.dashboard.CodeReadyNewWorkspace.CodereadyStacks.NODE;
 import static org.eclipse.che.commons.lang.NameGenerator.generate;
 import static org.eclipse.che.selenium.core.constant.TestMenuCommandsConstants.Assistant.ASSISTANT;
 import static org.eclipse.che.selenium.core.constant.TestMenuCommandsConstants.Assistant.FIND_PROJECT_SYMBOL;
@@ -21,9 +21,9 @@ import static org.openqa.selenium.Keys.BACK_SPACE;
 
 import com.google.common.collect.ImmutableList;
 import com.google.inject.Inject;
-import com.redhat.codeready.selenium.pageobject.CodereadyEditor;
+import com.redhat.codeready.selenium.pageobject.CodeReadyEditor;
 import com.redhat.codeready.selenium.pageobject.dashboard.CodeReadyCreateWorkspaceHelper;
-import com.redhat.codeready.selenium.pageobject.dashboard.CodereadyNewWorkspace;
+import com.redhat.codeready.selenium.pageobject.dashboard.CodeReadyNewWorkspace;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URISyntaxException;
@@ -66,7 +66,7 @@ public class NodeJsUserStoryTest {
   @Inject private Ide ide;
   @Inject private Dashboard dashboard;
   @Inject private Workspaces workspaces;
-  @Inject private CodereadyNewWorkspace newWorkspace;
+  @Inject private CodeReadyNewWorkspace newWorkspace;
   @Inject private DefaultTestUser defaultTestUser;
   @Inject private TestWorkspaceProvider testWorkspaceProvider;
   @Inject private SeleniumWebDriverHelper seleniumWebDriverHelper;
@@ -75,7 +75,7 @@ public class NodeJsUserStoryTest {
   @Inject private AddOrImportForm addOrImportForm;
   @Inject private CommandsPalette commandsPalette;
   @Inject private Consoles consoles;
-  @Inject private CodereadyEditor editor;
+  @Inject private CodeReadyEditor editor;
   @Inject private Menu menu;
   @Inject private Events events;
   @Inject private TestProjectServiceClient projectServiceClient;
@@ -83,7 +83,6 @@ public class NodeJsUserStoryTest {
   @Inject private CodeReadyCreateWorkspaceHelper codeReadyCreateWorkspaceHelper;
 
   private TestWorkspace testWorkspace;
-  private String addressImage;
   private String packageJsonText;
   private String packageJsonEditedText;
 
@@ -91,7 +90,6 @@ public class NodeJsUserStoryTest {
   public void setUp() throws IOException, URISyntaxException {
     dashboard.open();
 
-    addressImage = readFileToString(getClass().getResource("/crw-stage-images/node-stack.txt"));
     packageJsonText =
         readFileToString(getClass().getResource("/projects/bayesian/package-json-before.txt"));
     packageJsonEditedText =
@@ -106,8 +104,7 @@ public class NodeJsUserStoryTest {
   @Test
   public void createJavaEAPWorkspaceWithProjectFromDashBoard() {
     testWorkspace =
-        codeReadyCreateWorkspaceHelper.createWsFromStackWithTestProject(
-            WORKSPACE, NODE, addressImage, projects);
+        codeReadyCreateWorkspaceHelper.createWsFromStackWithTestProject(WORKSPACE, NODE, projects);
 
     ide.switchToIdeAndWaitWorkspaceIsReadyToUse();
     projectExplorer.waitItem(PROJECT);

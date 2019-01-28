@@ -63,6 +63,7 @@ Other options:
     --skip-sources-validation           Fast build. Skips source validation and enforce plugins
     --workspace-pool-size=[<SIZE>|auto] Size of test workspace pool.
                                         Default value is 0, that means that test workspaces are created on demand.
+    --stack-image-registry=<ADDRESS>    Address of registry where images for stacks should be pulled from
 
 HOW TO of usage:
     Run tests from 'CodereadySuite.xml' against locally deployed CodeReady Workspaces on OpenShift Origin in grid mode using HTTP protocol:
@@ -123,6 +124,11 @@ for var in "$@"; do
         CLEAN_GOAL=
         break
     fi
+
+    if [[ "$var" =~ --stack-image-registry=.* ]]; then
+        STACK_IMAGE_REGISTRY=$(echo "$var" | sed -e "s/--stack-image-registry=//g")
+    fi
+
 done
 
 export CHE_INFRASTRUCTURE=openshift
@@ -131,6 +137,7 @@ export KEYCLOAK_OPENSHIFT_APP=keycloak
 export KEYCLOAK_CLI_INTERNAL_PATH="/opt/eap/bin/kcadm.sh"
 
 export CHE_OPENSHIFT_PROJECT=${CHE_OPENSHIFT_PROJECT:-"codeready"}
+export CRW_STACK_IMAGE_REGISTRY=${CRW_STACK_IMAGE_REGISTRY}
 
 mvn $CLEAN_GOAL dependency:unpack-dependencies \
     -DincludeArtifactIds=che-selenium-core \

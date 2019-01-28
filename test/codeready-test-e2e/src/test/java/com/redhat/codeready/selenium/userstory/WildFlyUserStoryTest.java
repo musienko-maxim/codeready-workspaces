@@ -11,21 +11,20 @@
 */
 package com.redhat.codeready.selenium.userstory;
 
-import static com.redhat.codeready.selenium.pageobject.dashboard.CodereadyNewWorkspace.CodereadyStacks.WILD_FLY_SWARM;
+import static com.redhat.codeready.selenium.pageobject.dashboard.CodeReadyNewWorkspace.CodereadyStacks.WILD_FLY_SWARM;
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.eclipse.che.commons.lang.NameGenerator.generate;
 import static org.eclipse.che.selenium.core.constant.TestBuildConstants.BUILD_SUCCESS;
 import static org.eclipse.che.selenium.core.constant.TestTimeoutsConstants.LOAD_PAGE_TIMEOUT_SEC;
 import static org.eclipse.che.selenium.core.constant.TestTimeoutsConstants.MULTIPLE;
-import static org.eclipse.che.selenium.core.utils.FileUtil.readFileToString;
 import static org.eclipse.che.selenium.pageobject.CodenvyEditor.MarkerLocator.ERROR;
 import static org.openqa.selenium.Keys.ENTER;
 
 import com.google.common.collect.ImmutableList;
 import com.google.inject.Inject;
-import com.redhat.codeready.selenium.pageobject.CodereadyEditor;
+import com.redhat.codeready.selenium.pageobject.CodeReadyEditor;
 import com.redhat.codeready.selenium.pageobject.dashboard.CodeReadyCreateWorkspaceHelper;
-import com.redhat.codeready.selenium.pageobject.dashboard.CodereadyNewWorkspace;
+import com.redhat.codeready.selenium.pageobject.dashboard.CodeReadyNewWorkspace;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URISyntaxException;
@@ -66,7 +65,7 @@ public class WildFlyUserStoryTest {
   @Inject private Ide ide;
   @Inject private Dashboard dashboard;
   @Inject private Workspaces workspaces;
-  @Inject private CodereadyNewWorkspace newWorkspace;
+  @Inject private CodeReadyNewWorkspace newWorkspace;
   @Inject private DefaultTestUser defaultTestUser;
   @Inject private TestWorkspaceProvider testWorkspaceProvider;
   @Inject private SeleniumWebDriverHelper seleniumWebDriverHelper;
@@ -75,19 +74,17 @@ public class WildFlyUserStoryTest {
   @Inject private AddOrImportForm addOrImportForm;
   @Inject private CommandsPalette commandsPalette;
   @Inject private Consoles consoles;
-  @Inject private CodereadyEditor editor;
+  @Inject private CodeReadyEditor editor;
   @Inject private Menu menu;
   @Inject private Events events;
   @Inject private MavenPluginStatusBar mavenPluginStatusBar;
   @Inject private CodeReadyCreateWorkspaceHelper codeReadyCreateWorkspaceHelper;
 
   private TestWorkspace testWorkspace;
-  private String addressImage;
 
   @BeforeClass
   public void setUp() throws IOException, URISyntaxException {
     dashboard.open();
-    addressImage = readFileToString(getClass().getResource("/crw-stage-images/java-stack.txt"));
   }
 
   @AfterClass
@@ -100,7 +97,7 @@ public class WildFlyUserStoryTest {
     // createWsFromWildFlyStack();
     testWorkspace =
         codeReadyCreateWorkspaceHelper.createWsFromStackWithTestProject(
-            WORKSPACE, WILD_FLY_SWARM, addressImage, projects);
+            WORKSPACE, WILD_FLY_SWARM, projects);
 
     ide.switchToIdeAndWaitWorkspaceIsReadyToUse();
     projectExplorer.waitItem(PROJECT);

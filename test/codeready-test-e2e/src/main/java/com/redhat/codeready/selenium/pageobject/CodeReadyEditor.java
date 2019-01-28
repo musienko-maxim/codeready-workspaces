@@ -24,11 +24,11 @@ import org.eclipse.che.selenium.pageobject.TestWebElementRenderChecker;
 import org.openqa.selenium.By;
 
 @Singleton
-public class CodereadyEditor extends CodenvyEditor {
+public class CodeReadyEditor extends CodenvyEditor {
   private SeleniumWebDriverHelper seleniumWebDriverHelper;
 
   @Inject
-  public CodereadyEditor(
+  public CodeReadyEditor(
       SeleniumWebDriver seleniumWebDriver,
       Loader loader,
       ActionsFactory actionsFactory,

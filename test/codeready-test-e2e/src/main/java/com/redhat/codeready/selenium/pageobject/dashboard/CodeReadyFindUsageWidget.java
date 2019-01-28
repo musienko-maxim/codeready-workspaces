@@ -20,11 +20,11 @@ import org.eclipse.che.selenium.pageobject.FindUsages;
 import org.openqa.selenium.By;
 
 @Singleton
-public class CodereadyFindUsageWidget extends FindUsages {
+public class CodeReadyFindUsageWidget extends FindUsages {
   private SeleniumWebDriverHelper seleniumWebDriverHelper;
 
   @Inject
-  public CodereadyFindUsageWidget(
+  public CodeReadyFindUsageWidget(
       SeleniumWebDriver seleniumWebDriver,
       WebDriverWaitFactory webDriverWaitFactory,
       SeleniumWebDriverHelper seleniumWebDriverHelper) {

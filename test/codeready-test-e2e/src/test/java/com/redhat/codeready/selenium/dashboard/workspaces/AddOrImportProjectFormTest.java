@@ -17,7 +17,7 @@ import static org.testng.Assert.assertEquals;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.inject.Inject;
-import com.redhat.codeready.selenium.pageobject.dashboard.CodereadyNewWorkspace;
+import com.redhat.codeready.selenium.pageobject.dashboard.CodeReadyNewWorkspace;
 import org.eclipse.che.selenium.core.SeleniumWebDriver;
 import org.eclipse.che.selenium.core.client.TestWorkspaceServiceClient;
 import org.eclipse.che.selenium.core.user.DefaultTestUser;
@@ -60,7 +60,7 @@ public class AddOrImportProjectFormTest {
   @Inject private Dashboard dashboard;
   @Inject private DefaultTestUser defaultTestUser;
   @Inject private Workspaces workspaces;
-  @Inject private CodereadyNewWorkspace newWorkspace;
+  @Inject private CodeReadyNewWorkspace newWorkspace;
   @Inject private TestWorkspaceServiceClient testWorkspaceServiceClient;
   @Inject private SeleniumWebDriverHelper seleniumWebDriverHelper;
   @Inject private SeleniumWebDriver seleniumWebDriver;

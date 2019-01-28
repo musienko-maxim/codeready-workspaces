@@ -11,7 +11,7 @@
 */
 package com.redhat.codeready.selenium.userstory;
 
-import static com.redhat.codeready.selenium.pageobject.dashboard.CodereadyNewWorkspace.CodereadyStacks.SPRING_BOOT;
+import static com.redhat.codeready.selenium.pageobject.dashboard.CodeReadyNewWorkspace.CodereadyStacks.SPRING_BOOT;
 import static org.eclipse.che.commons.lang.NameGenerator.generate;
 import static org.eclipse.che.selenium.core.constant.TestBuildConstants.BUILD_SUCCESS;
 import static org.eclipse.che.selenium.core.constant.TestBuildConstants.LISTENING_AT_ADDRESS_8000;
@@ -25,19 +25,16 @@ import static org.eclipse.che.selenium.core.constant.TestMenuCommandsConstants.A
 import static org.eclipse.che.selenium.core.constant.TestProjectExplorerContextMenuConstants.ContextMenuCommandGoals.BUILD_GOAL;
 import static org.eclipse.che.selenium.core.constant.TestProjectExplorerContextMenuConstants.ContextMenuCommandGoals.DEBUG_GOAL;
 import static org.eclipse.che.selenium.core.constant.TestProjectExplorerContextMenuConstants.ContextMenuCommandGoals.RUN_GOAL;
-import static org.eclipse.che.selenium.core.utils.FileUtil.readFileToString;
 import static org.eclipse.che.selenium.pageobject.CodenvyEditor.MarkerLocator.ERROR;
 import static org.openqa.selenium.Keys.F4;
 import static org.testng.Assert.fail;
 
 import com.google.common.collect.ImmutableList;
 import com.google.inject.Inject;
-import com.redhat.codeready.selenium.pageobject.CodereadyEditor;
+import com.redhat.codeready.selenium.pageobject.CodeReadyEditor;
 import com.redhat.codeready.selenium.pageobject.dashboard.CodeReadyCreateWorkspaceHelper;
-import com.redhat.codeready.selenium.pageobject.dashboard.CodereadyNewWorkspace;
-import com.redhat.codeready.selenium.pageobject.dashboard.CodereadyNewWorkspace.CodereadyStacks;
-import java.io.IOException;
-import java.net.URISyntaxException;
+import com.redhat.codeready.selenium.pageobject.dashboard.CodeReadyNewWorkspace;
+import com.redhat.codeready.selenium.pageobject.dashboard.CodeReadyNewWorkspace.CodereadyStacks;
 import java.util.List;
 import org.eclipse.che.selenium.core.client.TestWorkspaceServiceClient;
 import org.eclipse.che.selenium.core.user.DefaultTestUser;
@@ -69,23 +66,21 @@ public class SpringBootUserStoryTest {
   @Inject private Menu menu;
   @Inject private Consoles consoles;
   @Inject private Dashboard dashboard;
-  @Inject private CodereadyEditor editor;
+  @Inject private CodeReadyEditor editor;
   @Inject private Workspaces workspaces;
   @Inject private DefaultTestUser defaultTestUser;
   @Inject private ProjectExplorer projectExplorer;
   @Inject private AddOrImportForm addOrImportForm;
-  @Inject private CodereadyNewWorkspace newWorkspace;
+  @Inject private CodeReadyNewWorkspace newWorkspace;
   @Inject private TestWorkspaceServiceClient workspaceServiceClient;
   @Inject private CodeReadyCreateWorkspaceHelper codeReadyCreateWorkspaceHelper;
 
   // it is used to read workspace logs on test failure
   private TestWorkspace testWorkspace;
-  private String addressImage;
 
   @BeforeClass
-  public void setUp() throws IOException, URISyntaxException {
+  public void setUp() {
     dashboard.open();
-    addressImage = readFileToString(getClass().getResource("/crw-stage-images/java-stack.txt"));
   }
 
   @AfterClass
@@ -97,7 +92,7 @@ public class SpringBootUserStoryTest {
   public void createSpringBootWorkspaceWithProjectFromDashBoard() {
     testWorkspace =
         codeReadyCreateWorkspaceHelper.createWsFromStackWithTestProject(
-            WORKSPACE_NAME, SPRING_BOOT, addressImage, projects);
+            WORKSPACE_NAME, SPRING_BOOT, projects);
 
     ide.switchToIdeAndWaitWorkspaceIsReadyToUse();
     projectExplorer.waitProjectInitialization(PROJECT_NAME);

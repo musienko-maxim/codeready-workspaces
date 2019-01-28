@@ -34,7 +34,7 @@ import org.openqa.selenium.By;
  * @author Dmytro Nochevnov
  */
 @Singleton
-public class CodereadyNewWorkspace extends NewWorkspace {
+public class CodeReadyNewWorkspace extends NewWorkspace {
 
   private SeleniumWebDriverHelper seleniumWebDriverHelper;
   private final TestWebElementRenderChecker testWebElementRenderChecker;
@@ -49,7 +49,7 @@ public class CodereadyNewWorkspace extends NewWorkspace {
       "//che-button-default//span[text()='Open']";
 
   @Inject
-  public CodereadyNewWorkspace(
+  public CodeReadyNewWorkspace(
       SeleniumWebDriver seleniumWebDriver,
       SeleniumWebDriverHelper seleniumWebDriverHelper,
       WebDriverWaitFactory webDriverWaitFactory,

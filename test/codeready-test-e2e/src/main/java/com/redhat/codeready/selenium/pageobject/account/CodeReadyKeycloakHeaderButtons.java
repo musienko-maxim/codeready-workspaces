@@ -25,7 +25,7 @@ import org.openqa.selenium.By;
  * @author Aleksandr Shmaraiev
  */
 @Singleton
-public class CodereadyKeycloakHeaderButtons extends KeycloakHeaderButtons {
+public class CodeReadyKeycloakHeaderButtons extends KeycloakHeaderButtons {
   private enum Button {
     ACCOUNT("Account"),
     PASSWORD("Password"),
@@ -51,7 +51,7 @@ public class CodereadyKeycloakHeaderButtons extends KeycloakHeaderButtons {
   private SeleniumWebDriverHelper seleniumWebDriverHelper;
 
   @Inject
-  public CodereadyKeycloakHeaderButtons(SeleniumWebDriverHelper seleniumWebDriverHelper) {
+  public CodeReadyKeycloakHeaderButtons(SeleniumWebDriverHelper seleniumWebDriverHelper) {
     super(seleniumWebDriverHelper);
     this.seleniumWebDriverHelper = seleniumWebDriverHelper;
   }

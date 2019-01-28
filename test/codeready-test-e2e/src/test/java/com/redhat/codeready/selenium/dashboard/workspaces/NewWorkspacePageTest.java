@@ -20,8 +20,8 @@ import static org.openqa.selenium.Keys.ESCAPE;
 import static org.testng.Assert.assertEquals;
 
 import com.google.inject.Inject;
-import com.redhat.codeready.selenium.pageobject.dashboard.CodereadyNewWorkspace;
-import com.redhat.codeready.selenium.pageobject.dashboard.CodereadyNewWorkspace.CodereadyStacks;
+import com.redhat.codeready.selenium.pageobject.dashboard.CodeReadyNewWorkspace;
+import com.redhat.codeready.selenium.pageobject.dashboard.CodeReadyNewWorkspace.CodereadyStacks;
 import java.util.List;
 import org.eclipse.che.selenium.core.webdriver.SeleniumWebDriverHelper;
 import org.eclipse.che.selenium.pageobject.dashboard.Dashboard;
@@ -45,7 +45,7 @@ public class NewWorkspacePageTest {
   private static final String MAKE_SUGGESTION_TITLE = "MAKE";
   private static final String MAVEN_SUGGESTION_TITLE = "MAVEN";
 
-  private static List<CodereadyNewWorkspace.CodereadyStacks> EXPECTED_CODEREADY_QUICK_START_STACKS =
+  private static List<CodeReadyNewWorkspace.CodereadyStacks> EXPECTED_CODEREADY_QUICK_START_STACKS =
       asList(
           CodereadyStacks.JAVA_EAP,
           CodereadyStacks.JAVA_DEFAULT,
@@ -60,7 +60,7 @@ public class NewWorkspacePageTest {
           CodereadyStacks.PHP,
           CodereadyStacks.PYTHON);
 
-  private static final List<CodereadyNewWorkspace.CodereadyStacks>
+  private static final List<CodeReadyNewWorkspace.CodereadyStacks>
       EXPECTED_CODEREADY_QUICK_START_STACKS_REVERSE_ORDER =
           asList(
               CodereadyStacks.JAVA_EAP,
@@ -76,7 +76,7 @@ public class NewWorkspacePageTest {
               CodereadyStacks.CPP,
               CodereadyStacks.DOT_NET);
 
-  private static List<CodereadyNewWorkspace.CodereadyStacks>
+  private static List<CodeReadyNewWorkspace.CodereadyStacks>
       EXPECTED_CODEREADY_SINGLE_MACHINE_STACKS =
           asList(
               CodereadyStacks.JAVA_EAP,
@@ -92,7 +92,7 @@ public class NewWorkspacePageTest {
               CodereadyStacks.PHP,
               CodereadyStacks.PYTHON);
 
-  private static final List<CodereadyNewWorkspace.CodereadyStacks> EXPECTED_CODEREADY_JAVA_STACKS =
+  private static final List<CodeReadyNewWorkspace.CodereadyStacks> EXPECTED_CODEREADY_JAVA_STACKS =
       asList(
           CodereadyStacks.WILD_FLY_SWARM,
           CodereadyStacks.SPRING_BOOT,
@@ -107,7 +107,7 @@ public class NewWorkspacePageTest {
 
   @Inject private Dashboard dashboard;
   @Inject private Workspaces workspaces;
-  @Inject private CodereadyNewWorkspace newWorkspace;
+  @Inject private CodeReadyNewWorkspace newWorkspace;
   @Inject private SeleniumWebDriverHelper seleniumWebDriverHelper;
 
   @BeforeClass
@@ -266,9 +266,9 @@ public class NewWorkspacePageTest {
   }
 
   private void checkStackButtons(
-      List<CodereadyNewWorkspace.CodereadyStacks> expectedQuickStartStacks,
-      List<CodereadyNewWorkspace.CodereadyStacks> expectedSingleMachineStacks,
-      List<CodereadyNewWorkspace.CodereadyStacks> expectedQuickStartStacksReverseOrder) {
+      List<CodeReadyNewWorkspace.CodereadyStacks> expectedQuickStartStacks,
+      List<CodeReadyNewWorkspace.CodereadyStacks> expectedSingleMachineStacks,
+      List<CodeReadyNewWorkspace.CodereadyStacks> expectedQuickStartStacksReverseOrder) {
 
     newWorkspace.waitPageLoad();
     newWorkspace.waitQuickStartButton();
@@ -299,7 +299,7 @@ public class NewWorkspacePageTest {
 
   private void checkFiltersButton(
       List<String> expectedSuggestions,
-      List<CodereadyNewWorkspace.CodereadyStacks> expectedQuickStartStacks) {
+      List<CodeReadyNewWorkspace.CodereadyStacks> expectedQuickStartStacks) {
     newWorkspace.waitPageLoad();
 
     // close by "Escape" button
@@ -394,8 +394,8 @@ public class NewWorkspacePageTest {
   }
 
   private void checkSearchField(
-      List<CodereadyNewWorkspace.CodereadyStacks> expectedJavaStacks,
-      List<CodereadyNewWorkspace.CodereadyStacks> expectedQuickStartStacks) {
+      List<CodeReadyNewWorkspace.CodereadyStacks> expectedJavaStacks,
+      List<CodeReadyNewWorkspace.CodereadyStacks> expectedQuickStartStacks) {
     newWorkspace.waitPageLoad();
 
     newWorkspace.typeToSearchInput("Java");

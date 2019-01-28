@@ -11,7 +11,7 @@
 */
 package com.redhat.codeready.selenium.userstory;
 
-import static com.redhat.codeready.selenium.pageobject.dashboard.CodereadyNewWorkspace.CodereadyStacks.VERTX;
+import static com.redhat.codeready.selenium.pageobject.dashboard.CodeReadyNewWorkspace.CodereadyStacks.VERTX;
 import static org.eclipse.che.commons.lang.NameGenerator.generate;
 import static org.eclipse.che.selenium.core.constant.TestBuildConstants.BUILD_SUCCESS;
 import static org.eclipse.che.selenium.core.constant.TestCommandsConstants.BUILD_COMMAND;
@@ -24,16 +24,13 @@ import static org.eclipse.che.selenium.core.constant.TestProjectExplorerContextM
 import static org.eclipse.che.selenium.core.constant.TestProjectExplorerContextMenuConstants.ContextMenuCommandGoals.RUN_GOAL;
 import static org.eclipse.che.selenium.core.constant.TestTimeoutsConstants.LOADER_TIMEOUT_SEC;
 import static org.eclipse.che.selenium.core.constant.TestTimeoutsConstants.UPDATING_PROJECT_TIMEOUT_SEC;
-import static org.eclipse.che.selenium.core.utils.FileUtil.readFileToString;
 import static org.eclipse.che.selenium.pageobject.CodenvyEditor.MarkerLocator.ERROR;
 
 import com.google.common.collect.ImmutableList;
 import com.google.inject.Inject;
 import com.redhat.codeready.selenium.pageobject.dashboard.CodeReadyCreateWorkspaceHelper;
-import com.redhat.codeready.selenium.pageobject.dashboard.CodereadyFindUsageWidget;
-import com.redhat.codeready.selenium.pageobject.dashboard.CodereadyNewWorkspace;
-import java.io.IOException;
-import java.net.URISyntaxException;
+import com.redhat.codeready.selenium.pageobject.dashboard.CodeReadyFindUsageWidget;
+import com.redhat.codeready.selenium.pageobject.dashboard.CodeReadyNewWorkspace;
 import java.util.Arrays;
 import java.util.List;
 import org.eclipse.che.selenium.core.SeleniumWebDriver;
@@ -71,7 +68,7 @@ public class VertxUserStoryTest {
   @Inject private Ide ide;
   @Inject private Workspaces workspaces;
   @Inject private Consoles consoles;
-  @Inject private CodereadyNewWorkspace newWorkspace;
+  @Inject private CodeReadyNewWorkspace newWorkspace;
   @Inject private DefaultTestUser defaultTestUser;
   @Inject private Dashboard dashboard;
   @Inject private AddOrImportForm addOrImportForm;
@@ -80,7 +77,7 @@ public class VertxUserStoryTest {
   @Inject private CodenvyEditor editor;
   @Inject private Events events;
   @Inject private Menu menu;
-  @Inject private CodereadyFindUsageWidget findUsages;
+  @Inject private CodeReadyFindUsageWidget findUsages;
   @Inject private SeleniumWebDriver seleniumWebDriver;
   @Inject private SeleniumWebDriverHelper seleniumWebDriverHelper;
   @Inject private TestWorkspaceServiceClient workspaceServiceClient;
@@ -88,13 +85,11 @@ public class VertxUserStoryTest {
 
   // it is used to read workspace logs on test failure
   private TestWorkspace testWorkspace;
-  private String addressImage;
   private String currentWindow;
 
   @BeforeClass
-  public void setUp() throws IOException, URISyntaxException {
+  public void setUp() {
     dashboard.open();
-    addressImage = readFileToString(getClass().getResource("/crw-stage-images/java-stack.txt"));
   }
 
   @AfterClass
@@ -108,7 +103,7 @@ public class VertxUserStoryTest {
     // possible to read logs in case of test failure
     testWorkspace =
         codeReadyCreateWorkspaceHelper.createWsFromStackWithTestProject(
-            WORKSPACE_NAME, VERTX, addressImage, projects);
+            WORKSPACE_NAME, VERTX, projects);
 
     // switch to the IDE
     currentWindow = ide.switchToIdeAndWaitWorkspaceIsReadyToUse();

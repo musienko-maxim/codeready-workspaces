@@ -25,12 +25,12 @@ import org.eclipse.che.selenium.pageobject.intelligent.CommandsExplorer;
 import org.openqa.selenium.By;
 
 @Singleton
-public class CodereadyDebuggerPanel extends DebugPanel {
+public class CodeReadyDebuggerPanel extends DebugPanel {
   private SeleniumWebDriverHelper seleniumWebDriverHelper;
   private final SeleniumWebDriver seleniumWebDriver;
 
   @Inject
-  public CodereadyDebuggerPanel(
+  public CodeReadyDebuggerPanel(
       SeleniumWebDriver seleniumWebDriver,
       Loader loader,
       CodenvyEditor editor,

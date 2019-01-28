@@ -17,12 +17,12 @@ import java.util.List;
 import org.eclipse.che.selenium.core.CheSeleniumTestHandler;
 
 /** @author Dmytro Nochevnov */
-public class CodereadySeleniumTestHandler extends CheSeleniumTestHandler {
+public class CodeReadySeleniumTestHandler extends CheSeleniumTestHandler {
 
   @Override
   public List<Module> getParentModules() {
     List<Module> modules = new ArrayList<>();
-    modules.add(new CodereadySeleniumSuiteModule());
+    modules.add(new CodeReadySeleniumSuiteModule());
     return modules;
   }
 }
